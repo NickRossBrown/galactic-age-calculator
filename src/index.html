@@ -1,25 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Add Title Here</title>
+  <title>Cosmic Age Calculater</title>
 </head>
 <body>
   <div class="container">
-    <h1>Cosmic Age Calculater</h1>
+    <h1>Find Your Birthday on other planets</h1>
 
     <form id="userInput">
+
+      <h5> Enter Your Name </h5>
       <label for="userName">Name</label>
       <input type="text" name="UserName" id="userName" required>
+
+      <hr />
+
+      <h5> Enter Your Brithday </h5>
+      <label for="birthdayMonth">Month</label>
+      <input type="text" name="UserName" id="birthdayMonth" required>
+
+      <label for="birthdayDay">Day</label>
+      <input type="text" name="UserName" id="birthdayDay" required>
+
+      <label for="BirthdayYear">Year</label>
+      <input type="text" name="UserName" "BirthdayYear" required>
+
+      <hr />
+
+      <h5> Pick a Planet </h5>
       <select name="planet" id="chosenPlanet" required>
-        <option value="" disabled selected>Pick a Planet</option>
+        <option value="" disabled selected>Select Planet</option>
         <option value="m">Mercury</option>
         <option value="v">Venus</option>
         <option value="m">Mars</option>
         <option value="j">Jupitor</option>
       </select>
+
+      <hr />
+      
       <button type="submit">Calculate Galatic Age</button>
     </form>
-    
+
   </div>
 </body>
 </html>
