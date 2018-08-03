@@ -5,7 +5,21 @@
 </head>
 <body>
   <div class="container">
-    <h1>Some new JavaScript Project</h1>
+    <h1>Cosmic Age Calculater</h1>
+
+    <form id="userInput">
+      <label for="userName">Name</label>
+      <input type="text" name="UserName" id="userName" required>
+      <select name="planet" id="chosenPlanet" required>
+        <option value="" disabled selected>Pick a Planet</option>
+        <option value="m">Mercury</option>
+        <option value="v">Venus</option>
+        <option value="m">Mars</option>
+        <option value="j">Jupitor</option>
+      </select>
+      <button type="submit">Calculate Galatic Age</button>
+    </form>
+    
   </div>
 </body>
 </html>
