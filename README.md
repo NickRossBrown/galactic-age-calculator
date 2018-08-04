@@ -57,11 +57,11 @@
 ## Specifications
 
 * _1 Take a person’s age in years and convert it into seconds.
-  - _Example Input: _
-  - _Example Output: _
-* _2 Take two dates and determine the difference, in seconds, between the two.
-  - _Example Input: _
-  - _Example Output: _
+  - _Example Input: _ 10
+  - _Example Output: _ 3.15 * 10 ^ 8 seconds
+* _1 Take two dates and determine the difference, in seconds, between the two.
+  - _Example Input: _ (april 27 1990) and (april 28 1990)
+  - _Example Output: _ 3.154e+8 seconds
 * _1 Return the age of a human in Mercury years.
   - _Example Input: _
   - _Example Output: _

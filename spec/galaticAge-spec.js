@@ -64,38 +64,47 @@ describe ('GalaticAge', function () {
 
   it ('should test mercuryYears calculation from earth years into Mercury years ', function() {
     let years = person.mercuryYears(21)
-    console.log(years)
     expect(years).toEqual(5.04);
   });
 
   it ('should test Venus years calculation from earth years', function() {
     let years = person.venusYears(21)
-    console.log(years)
     expect(years).toEqual(13.02);
   });
 
   it ('should test Mars years calculation from earth years', function() {
     let years = person.marsYears(21)
-    console.log(years)
     expect(years).toEqual(39.48);
   });
 
   it ('should test Jupitor years calculation from earth years', function() {
     let years = person.jupitorYears(21)
-    console.log(years)
     expect(years).toEqual(249.06);
   });
 
-  it ('determine how many expected earth years a user had to live on earth' , function() {
-    let years = person.jupitorYears(21)
-    console.log(years)
+  it ('knowing a only a persons age and gender, it calculates the general expected life expectancy for a male' , function() {
+    let yearsLeft = person.lifeExpectancy(60)
+    console.log(yearsLeft)
+    expect(years).toEqual(81.04);
+  });
+
+  it ('knowing a only a persons age and gender, it calculates the general expected life expectancy for a female' , function() {
+    let yearsLeft = person.lifeExpectancy(83.81)
+    console.log(yearsLeft)
     expect(years).toEqual();
   });
 
-  it ('determine how many expected earth years a user has outlived' , function() {
-    let years = person.jupitorYears(21)
+  it ('determine how many expected earth years a male user has outlived over expected life expectancy' , function() {
+    let years = person.yearsPastAverageLifeExpectancy(95)
     console.log(years)
-    expect(years).toEqual();
+    expect(years).toEqual(100-76.5);
+  });
+
+  it ('determine how many expected earth years a female user has outlived over expected life expectancy' , function() {
+    let years = person.yearsPastAverageLifeExpectancy(95)
+    let age = 100
+    console.log(years)
+    expect(years).toEqual(100-80.8);
   });
 
 
