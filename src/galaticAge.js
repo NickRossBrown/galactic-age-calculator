@@ -9,16 +9,15 @@ export class GalaticAge {
     this.todayDate = new Date();
   }
     //
-//want to add default values to constucter
+want to add default values to constucter
 
-  // function defaults (def){
-  //     this.def = {name:"defaultName",
-  //     day:99,
-  //     month:99,
-  //     year:999,
-  //     planet:"earth"
-  //   };
-  // };
+  const defaults = {
+      name:"defaultName",
+      day:99,
+      month:99,
+      year:999,
+      planet:"earth"
+  };
 
 
    yearsToDays(years){
@@ -59,19 +58,19 @@ export class GalaticAge {
    }
 
    mercuryYears(years) {
-     return years * .24
+     return years / .24
    }
 
    venusYears(years) {
-     return years * .62
+     return years / .62
    }
 
    marsYears(years) {
-     return years * 1.88
+     return years / 1.88
    }
 
    jupitorYears(years) {
-     return years * 11.86
+     return years / 11.86
    }
 
    maleLifeExpectancy(age) {
@@ -104,7 +103,7 @@ export class GalaticAge {
        let x = age - 65
        x = x * slope
        let y2 = x+lifeExp
-       return y2.toFixed(4)
+       return y2.toFixed(2)
      } else if (age >= 70 && age < 100) {
        slope  =	0.61066666666667
        lifeExp = 83.68
@@ -125,7 +124,7 @@ export class GalaticAge {
    overAverageLifeSpan(age){
      if (age > 76.5){
        return age - 76.5
-     } else return false
+     } else return 76.5 - age
    }
 
 

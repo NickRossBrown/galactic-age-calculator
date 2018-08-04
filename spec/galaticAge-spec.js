@@ -132,8 +132,8 @@ describe ('GalaticAge', function () {
   it ('determine how many expected earth years a male user has outlived over expected life expectancy or returns false if they are below' , function() {
     let over = person.overAverageLifeSpan(83)
     expect(over).toEqual(6.5);
-    over = person.overAverageLifeSpan(73)
-    expect(over).toEqual(false);
+    over = person.overAverageLifeSpan(71.5)
+    expect(over).toEqual(5);
   });
 
   // it ('knowing a only a persons age and gender, it calculates the general expected life expectancy for a female' , function() {
