@@ -49,15 +49,51 @@ describe ('GalaticAge', function () {
     console.log(days)
     expect(days).toEqual(304);
   });
+
   it ('should test daysToHours(days) calcuation from changing days into hours ', function() {
     let hours = person.daysToHours(31) ;
-
     expect(hours).toEqual(744);
   });
+
   it ('should test hoursToSec(hours) calculation from changing hours into seconds ', function() {
     let seconds = person.hoursToSec(2);
-
     expect(seconds).toEqual(7200);
+  });
+
+  it ('should test mercuryYears(years calculation from earth years into Mercury years ', function() {
+    let years = person.mercuryYears(21)
+    console.log(years)
+    expect(years).toEqual(5.04);
+  });
+
+  it ('should test Venus years calculation from earth years', function() {
+    let years = person.venusYears(1)
+    console.log(years)
+    expect(years).toEqual();
+  });
+
+  it ('should test Mars years calculation from earth years', function() {
+    let years = person.marsYears(1)
+    console.log(years)
+    expect(years).toEqual();
+  });
+
+  it ('should test Jupitor years calculation from earth years', function() {
+    let years = person.jupitorYears(1)
+    console.log(years)
+    expect(years).toEqual();
+  });
+
+  it ('determine how many expected earth years a user had to live on earth' , function() {
+    let years = person.jupitorYears(1)
+    console.log(years)
+    expect(years).toEqual();
+  });
+
+  it ('determine how many expected earth years a user has outlived' , function() {
+    let years = person.jupitorYears(1)
+    console.log(years)
+    expect(years).toEqual();
   });
 
 

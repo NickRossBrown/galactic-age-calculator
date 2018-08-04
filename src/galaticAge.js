@@ -53,6 +53,12 @@ export class GalaticAge {
    return hours
    }
 
+   mercuryYears(years) {
+     return years * .24
+   }
+
+
+
 
 
 }
