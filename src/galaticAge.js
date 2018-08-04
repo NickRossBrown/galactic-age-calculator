@@ -56,6 +56,15 @@ export class GalaticAge {
    mercuryYears(years) {
      return years * .24
    }
+   venusYears(years) {
+     return years * .62
+   }
+   marsYears(years) {
+     return years * 1.88
+   }
+   jupitorYears(years) {
+     return years * 11.86
+   }
 
 
 

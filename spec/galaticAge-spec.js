@@ -3,9 +3,11 @@ import { GalaticAge } from './../src/galaticAge.js';
 describe ('GalaticAge', function () {
   let person;
   let test;
+  let years
 
     beforeEach(function() {
       person = new GalaticAge ("Nick",9,99,9999,"sun")
+      years = 0
 
     });
 
@@ -60,38 +62,38 @@ describe ('GalaticAge', function () {
     expect(seconds).toEqual(7200);
   });
 
-  it ('should test mercuryYears(years calculation from earth years into Mercury years ', function() {
+  it ('should test mercuryYears calculation from earth years into Mercury years ', function() {
     let years = person.mercuryYears(21)
     console.log(years)
     expect(years).toEqual(5.04);
   });
 
   it ('should test Venus years calculation from earth years', function() {
-    let years = person.venusYears(1)
+    let years = person.venusYears(21)
     console.log(years)
-    expect(years).toEqual();
+    expect(years).toEqual(13.02);
   });
 
   it ('should test Mars years calculation from earth years', function() {
-    let years = person.marsYears(1)
+    let years = person.marsYears(21)
     console.log(years)
-    expect(years).toEqual();
+    expect(years).toEqual(39.48);
   });
 
   it ('should test Jupitor years calculation from earth years', function() {
-    let years = person.jupitorYears(1)
+    let years = person.jupitorYears(21)
     console.log(years)
-    expect(years).toEqual();
+    expect(years).toEqual(249.06);
   });
 
   it ('determine how many expected earth years a user had to live on earth' , function() {
-    let years = person.jupitorYears(1)
+    let years = person.jupitorYears(21)
     console.log(years)
     expect(years).toEqual();
   });
 
   it ('determine how many expected earth years a user has outlived' , function() {
-    let years = person.jupitorYears(1)
+    let years = person.jupitorYears(21)
     console.log(years)
     expect(years).toEqual();
   });
