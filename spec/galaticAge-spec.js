@@ -98,22 +98,22 @@ describe ('GalaticAge', function () {
 
   it ('should test mercuryYears calculation from earth years into Mercury years ', function() {
     years = person.mercuryYears(21)
-    expect(years).toEqual(5.04);
+    expect(years).toEqual(87.2);
   });
 
   it ('should test Venus years calculation from earth years', function() {
     years = person.venusYears(21)
-    expect(years).toEqual(13.02);
+    expect(years).toEqual(31.5);
   });
 
   it ('should test Mars years calculation from earth years', function() {
     years = person.marsYears(21)
-    expect(years).toEqual(39.48);
+    expect(years).toEqual(11.1);
   });
 
   it ('should test Jupitor years calculation from earth years', function() {
     years = person.jupitorYears(21)
-    expect(years).toEqual(249.06);
+    expect(years).toEqual(1.77);
   });
 
   it ('knowing a only a persons age and gender, it calculates the general expected life expectancy for a male' , function() {

@@ -63,17 +63,17 @@
   - _Example Input: _ (april 27 1990) and (april 28 1990)
   - _Example Output: _ 3.154e+8 seconds
 * _1 Return the age of a human in Mercury years.
-  - _Example Input: _
-  - _Example Output: _
+  - _Example Input: _ 21
+  - _Example Output: _ 87.2
 * _1 Return the age of a human in Venus years.
-  - _Example Input: _
-  - _Example Output: _
+  - _Example Input: _ 21
+  - _Example Output: _ 34.1
 * _1 Return the age of a human in Mars years.
-  - _Example Input: _
-  - _Example Output: _
+  - _Example Input: _ 21
+  - _Example Output: _ 11.1
 * _1 Return the age of a human in Jupiter years.
-  - _Example Input: _
-  - _Example Output: _
+  - _Example Input: _ 21
+  - _Example Output: _ 1.77
 * _1 Determine how many years a user has left to live on each planet
   - _Example Input: _
   - _Example Output: _
