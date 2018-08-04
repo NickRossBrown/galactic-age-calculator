@@ -26,20 +26,22 @@ export class GalaticAge {
      return years
    }
 
-    monthToDays(month){
+   daysInMonth (month) {
+     let date = new Date(1990, month, 0).getDate();
+     return date
+    }
+
+    monthsToDays(month){
     let i = month
     let totalDays = 0
     while (i > 0) {
-      totalDays=+totalDays
+      let days= 0
+      days = new Date(1990, i, 0).getDate();
+      totalDays = totalDays + days
       i-=1
     }
-    return totalDays
+    return totalDays;
   }
-
-  daysInMonth (month) {
-    let date = new Date(1990, month, 0).getDate();
-    return date
-   }
 
    daysToHours(days){
      days = days * 24
@@ -47,7 +49,7 @@ export class GalaticAge {
    }
 
    hoursToSec(hours){
-   hours = hours * 60
+   hours = hours * 60 * 60
    return hours
    }
 

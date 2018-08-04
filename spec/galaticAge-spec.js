@@ -34,12 +34,32 @@ describe ('GalaticAge', function () {
   });
 
   it ('should test yearsToDays(years) to see if it returns the number of days for the number of years inputted', function() {
-    console.log(person)
     let years = 10;
-      console.log(person.yearsToDays(10))
     let days = person.yearsToDays(10);
     expect(days).toEqual(3650);
   });
+
+  it ('should test monthToDays(month) to see if it returns the number of days for the inputted month', function() {
+    let days = person.daysInMonth(10);
+    expect(days).toEqual(31);
+  });
+
+  it ('should test monthsToDays(month) to see if it returns the number of days for every month during the year from the inputted month', function() {
+    let days = person.monthsToDays(10);
+    console.log(days)
+    expect(days).toEqual(304);
+  });
+  it ('should test daysToHours(days) calcuation from changing days into hours ', function() {
+    let hours = person.daysToHours(31) ;
+
+    expect(hours).toEqual(744);
+  });
+  it ('should test hoursToSec(hours) calculation from changing hours into seconds ', function() {
+    let seconds = person.hoursToSec(2);
+
+    expect(seconds).toEqual(7200);
+  });
+
 
 
 });
