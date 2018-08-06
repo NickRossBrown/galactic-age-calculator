@@ -9,15 +9,15 @@ export class GalaticAge {
     this.todayDate = new Date();
   }
     //
-want to add default values to constucter
-
-  const defaults = {
-      name:"defaultName",
-      day:99,
-      month:99,
-      year:999,
-      planet:"earth"
-  };
+// want to add default values to constucter
+//
+//   const defaults = {
+//       name:"defaultName",
+//       day:99,
+//       month:99,
+//       year:999,
+//       planet:"earth"
+//   };
 
 
    yearsToDays(years){
