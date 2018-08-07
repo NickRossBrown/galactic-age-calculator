@@ -1,4 +1,4 @@
-import { LifeExpectancy } from './../src/lifeExpectancy.js';
+mport { LifeExpectancy } from './../src/lifeExpectancy.js';
 
 describe ('LifeExpectancy', function () {
   let person;
