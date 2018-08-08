@@ -95,7 +95,7 @@ describe ('GalaticAge', function () {
     let x2 = 2
     let y1 = 3
     let y2 = 6
-    const slope = person.xyslope(x1,y1,x2,y2)
+    const slope = person.slope(x1,y1,x2,y2)
     expect(slope).toEqual(-.75);
   });
 
@@ -117,29 +117,31 @@ describe ('GalaticAge', function () {
 
 
   it ('loops through the xycood array to find an save the slope between the points and saves them to this.slope', function() {
-    expect(person.slope).toEqual([])
+    expect(person.xySlope).toEqual([])
+    let ob = person.maleExpectancyValues
+    const y2 = person.loopObject(ob)
     const slope = person.loopArray(person.xyCoor)
-    expect(age).toEqual(81.61);
+    expect(person.xySlope).toEqual([.04,.11,.23,.3,.61]);
 
   });
 
-  it ('calculates the years life given age', function() {
-    const age = person2.lifeCalc()
+  it ('calculates the expected years left in a life given age', function() {
+    const age = person.lifeCalc()
     expect(age).toEqual(81.61);
 
   });
 
   it ('returns the number of age someone is over the average life', function() {
-    overAverageLifeSpan(80)
+    const age = person.overAverageLifeSpan(80)
     expect(age).toEqual(3.5);
   });
 
-  it ('determine how many expected earth years a male user has outlived over expected life expectancy or returns false if they are below' , function() {
-    let over = person.overAverageLifeSpan(83)
-    expect(over).toEqual(6.5);
-    over = person.overAverageLifeSpan(71.5)
-    expect(over).toEqual(5);
-  });
+  // it ('determine how many expected earth years a male user has outlived over expected life expectancy or returns false if they are below' , function() {
+  //   let over = person.overAverageLifeSpan(83)
+  //   expect(over).toEqual(6.5);
+  //   over = person.overAverageLifeSpan(71.5)
+  //   expect(over).toEqual(5);
+  // });
 
 
 });

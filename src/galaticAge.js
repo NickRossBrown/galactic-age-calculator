@@ -11,7 +11,7 @@ export class GalaticAge {
     this.maleExpectancyValues = {0:76.5, 30:47.81, 60:21.04, 65:17.18, 70:13.68, 100:2}
     this.femaleExpectancyValues = {0:80.8, 30:51.61, 60:23.81, 65:19.71, 70:15.92, 100:2.3}
     this.xyCoor = []
-    this.slope = []
+    this.xySlope = []
   }
 
    daysInMonth (month) {
@@ -82,7 +82,7 @@ export class GalaticAge {
      return years
    }
 
-   xyslope(x1,y1,x2,y2) {
+   slope(x1,y1,x2,y2) {
      let xyslope = (y2 - y1) / (x2 - x1)
      return parseFloat(xyslope.toFixed(2))
    }
@@ -101,7 +101,6 @@ export class GalaticAge {
            const v = obj[key]
            const slope = [k,(v+k).toFixed(2)]
            this.xyCoor.push(slope)
-           console.log("y values---"+this.xyCoor)
        }
       }
     }
@@ -114,26 +113,26 @@ export class GalaticAge {
         let yy2 = parseFloat(array1[i+1][1])
 
         let m = this.slope(x1,y1,xx2,yy2)
-        this.slope.push(m)
-        console.log("MMM"+m)
-
+        this.xySlope.push(m)
       }
     }
 
     lifeCalc(){
-      console.log(this.xyCoor.length)
+      if (this.gender === "male") {
+        const obj1 = this.maleExpectancyValues
+      }
+      if (this.gender === "female") {
+        const obj1 = this.femaleExpectancyValues
+      }
+      this.loopObject(obj1)
+      this.loopArray(person.xyCoor)
       for (let i = 0; i< this.xyCoor.length ; i++) {
-        console.log("here")
-        console.log(this.xyCoor[i][0])
         if (this.age >= this.xyCoor[i][0] && this.age < this.xyCoor[i+1][0]){
-
-          console.log(parseFloat(this.xyCoor[i][1]))
           let slope = this.slope[i]
           let x1 = this.xyCoor[i][0]
           let x2 = this.age
           let y1 = parseFloat(this.xyCoor[i][1])
           const age = this.findY2(x1,x2,y1,slope)
-          console.log(age)
           return age
         }
       }

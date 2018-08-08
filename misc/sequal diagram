@@ -1,0 +1,22 @@
+title Anagrams
+
+User -> +class GalaticAge:
+
+class GalaticAge -> *+ totalSecondsLived():
+totalSecondsLived() -> *+ yearsToSec:
+yearsToSec -> - totalSecondsLived() :
+totalSecondsLived() -> *+ monthsToDays:
+monthsToDays -> - totalSecondsLived() :
+totalSecondsLived() -> *+ daysToHours:
+daysToHours -> - totalSecondsLived() :
+
+totalSecondsLived() -> *+ hoursToSec:
+hoursToSec -> - totalSecondsLived() :
+
+totalSecondsLived() -> class GalaticAge:
+
+class GalaticAge -> + lifeCalc:
+lifeCalc -> *+ loopObject:
+loopObject -> - lifeCalc:
+lifeCalc -> *+ loopArray:
+loopArray -> - lifeCalc :
