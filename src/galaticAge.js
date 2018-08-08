@@ -1,29 +1,18 @@
 export class GalaticAge {
 
-  constructor(name, month, day, year, planet) {
+  constructor(name, month, day, year, planet, gender) {
     this.name = name
     this.day = day
     this.month = month
     this.year = year
     this.planet = planet
+    this.gender = gender
     this.todayDate = new Date();
+    this.maleExpectancyValues = {0:76.5, 30:47.81, 60:21.04, 65:17.18, 70:13.68, 100:2}
+    this.femaleExpectancyValues = {0:80.8, 30:51.61, 60:23.81, 65:19.71, 70:15.92, 100:2.3}
+    this.xyCoor = []
+    this.slope = []
   }
-    //
-// want to add default values to constucter
-//
-//   const defaults = {
-//       name:"defaultName",
-//       day:99,
-//       month:99,
-//       year:999,
-//       planet:"earth"
-//   };
-
-
-   yearsToDays(years){
-     years = years * 365
-     return years
-   }
 
    daysInMonth (month) {
      let date = new Date(1990, month, 0).getDate();
@@ -57,78 +46,104 @@ export class GalaticAge {
    return years
    }
 
+   totalSecondsLived(){
+    const years = this.todayDate.getFullYear() -this.year;
+    let seconds = this.yearsToSec(years);
+    let days = this.day;
+    const monthDays = this.monthsToDays(this.month-1);
+    days += monthDays;
+    const hours = this.daysToHours(days);
+    const seconds2 = this.hoursToSec(hours);
+    const total = seconds + seconds2;
+    return total
+  }
+
    mercuryYears(years) {
-     return years / .24
+     years = years / .24
+     years = parseFloat(years.toFixed(2))
+     return years
    }
 
    venusYears(years) {
-     return years / .62
+     years = years / .62
+     years = parseFloat(years.toFixed(2))
+     return years
    }
 
    marsYears(years) {
-     return years / 1.88
+     years = years / 1.88
+     years = parseFloat(years.toFixed(2))
+     return years
    }
 
    jupitorYears(years) {
-     return years / 11.86
+     years = years / 11.86
+     years = parseFloat(years.toFixed(2))
+     return years
    }
 
-   maleLifeExpectancy(age) {
-     let lifeExp = 0
-     let slope = 0
-     if (age >0 && age < 30) {
-       slope = 0.043666666666667
-       lifeExp = 76.5
-       let x = age - 0
-       x = x * slope
-       let y2 = x+lifeExp
-       return y2.toFixed(2)
-     } else if (age >= 30 && age < 60) {
-       slope = 0.10766666666667
-       lifeExp = 77.81
-       let x = age - 30
-       x = x * slope
-       let y2 = x+lifeExp
-       return y2.toFixed(2)
-     } else if (age >= 60 && age < 65) {
-       slope  =	0.228
-       lifeExp = 81.04
-       let x = age - 60
-       x = x * slope
-       let y2 = x+lifeExp
-       return y2.toFixed(2)
-     } else if (age >= 65 && age < 70) {
-       slope  =	0.3
-       lifeExp = 82.18
-       let x = age - 65
-       x = x * slope
-       let y2 = x+lifeExp
-       return y2.toFixed(2)
-     } else if (age >= 70 && age < 100) {
-       slope  =	0.61066666666667
-       lifeExp = 83.68
-       let x = age - 70
-       x = x * slope
-       let y2 = x+lifeExp
-       return y2.toFixed(2)
-     } else if ( age  >= 100) {
-       slope  =	0.61066666666667
-       lifeExp = 102
-       let x = age - 100
-       x = x * slope
-       let y2 = x+lifeExp
-       return y2.toFixed(2)
-     }
+   xyslope(x1,y1,x2,y2) {
+     let xyslope = (y2 - y1) / (x2 - x1)
+     return parseFloat(xyslope.toFixed(2))
    }
+
+   findY2(x1,x2,y1,slope) {
+     let y2 = ((x2-x1)*slope)+y1
+     return y2
+   }
+
+   loopObject(obj){
+     // obj = this.maleExpectancyValues
+     for (let key in obj) {
+       if (obj.hasOwnProperty(key)) {
+           console.log(key + " -> " + obj[key]);
+           const k = parseInt(key);
+           const v = obj[key]
+           const slope = [k,(v+k).toFixed(2)]
+           this.xyCoor.push(slope)
+           console.log("y values---"+this.xyCoor)
+       }
+      }
+    }
+
+    loopArray(array1){
+      for ( let i = 0; i<array1.length-1 ; i++) {
+        let x1 = array1[i][0]
+        let y1 = parseFloat(array1[i][1])
+        let xx2 = array1[i+1][0]
+        let yy2 = parseFloat(array1[i+1][1])
+
+        let m = this.slope(x1,y1,xx2,yy2)
+        this.slope.push(m)
+        console.log("MMM"+m)
+
+      }
+    }
+
+    lifeCalc(){
+      console.log(this.xyCoor.length)
+      for (let i = 0; i< this.xyCoor.length ; i++) {
+        console.log("here")
+        console.log(this.xyCoor[i][0])
+        if (this.age >= this.xyCoor[i][0] && this.age < this.xyCoor[i+1][0]){
+
+          console.log(parseFloat(this.xyCoor[i][1]))
+          let slope = this.slope[i]
+          let x1 = this.xyCoor[i][0]
+          let x2 = this.age
+          let y1 = parseFloat(this.xyCoor[i][1])
+          const age = this.findY2(x1,x2,y1,slope)
+          console.log(age)
+          return age
+        }
+      }
+    }
 
    overAverageLifeSpan(age){
      if (age > 76.5){
        return age - 76.5
      } else return 76.5 - age
    }
-
-
-
 
 
 }

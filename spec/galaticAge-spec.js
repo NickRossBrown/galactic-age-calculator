@@ -1,58 +1,4 @@
 import { GalaticAge } from './../src/galaticAge.js';
-import { LifeExpectancy } from './../src/lifeExpectancy.js';
-
-describe ('LifeExpectancy', function () {
-  let person;
-
-
-    beforeEach(function() {
-      person = new LifeExpectancy (27, "male")
-    });
-
-    it ('displays user given age and gender', function() {
-      expect(person.age).toEqual("Nick");
-      expect(person.gender).toEqual("male");
-    });
-
-
-    it ('calculates the slope knowing two points', function() {
-      let x1 = 6
-      let x2 = 2
-      let y1 = 3
-      let y2 = 6
-      const slope = person.slope(x1,y1,x2,y2)
-      expect(slope).toEqual(-.75);
-    });
-
-
-    it ('find the 4th value given a slope and 3 out of 4 values of two points', function() {
-      let x1 = 6
-      let x2 = 2
-      let y1 = 3
-      let slope = .5
-      const y2 = person.findY2(x1,y1,x2,slope)
-      expect(y2).toEqual(1);
-    });
-
-    it ('lopos through an obects value to return an array of rays for x,y corrdiantes', function() {
-      let array = person.maleExpectancyValues
-      const y2 = person.loopArray(array)
-      expect(y2).toEqual(1);
-    });
-
-    it ('calculates the years life given age', function() {
-      person2 = new LifeExpectancy (30, "male")
-      const age = person2.lifeCalc()
-      expect(age).toEqual(81.61);
-
-    });
-
-    it ('returns the number of age someone is over the average life', function() {
-      overAverageLifeSpan(80)
-      expect(age).toEqual(3.5);
-    });
-
-  });
 
 describe ('GalaticAge', function () {
   let person;
@@ -89,12 +35,6 @@ describe ('GalaticAge', function () {
       expect(test.todayDate.getFullYear()).toEqual(testDate.getFullYear());
   });
 
-  it ('should test yearsToDays(years) to see if it returns the number of days for the number of years inputted', function() {
-    years = 10;
-    days = person.yearsToDays(10);
-    expect(days).toEqual(3650);
-  });
-
   it ('should test monthToDays(month) to see if it returns the number of days for the inputted month', function() {
     days = person.daysInMonth(10);
     expect(days).toEqual(31);
@@ -125,44 +65,24 @@ describe ('GalaticAge', function () {
     expect(seconds).toEqual(31557600*2);
   });
 
-  it ('find the number of seconds someone has lived during a calendar year', function() {
-    const person1 = new GalaticAge("Nick",4,27,1990,"earf");
-    days = person1.day
-    let monthDays = person1.monthsToDays(person1.month-1)
-    days += monthDays
-    hours = person1.daysToHours(days)
-    seconds = person1.hoursToSec(hours)
-    expect(seconds).toEqual(10108800);
-  });
-
-
   it ('find the number of seconds someone for every year that peron lived', function() {
     const person1 = new GalaticAge("Nick",4,27,1990,"earf");
-    let testDate = new Date;
-    years = testDate.getFullYear() - person1.year
-    seconds = person1.yearsToSec(years)
-    days = person1.day
-    let monthDays = person1.monthsToDays(person1.month-1)
-    days += monthDays
-    hours = person1.daysToHours(days)
-    const seconds2 = person1.hoursToSec(hours)
-    const total = seconds + seconds2
-    expect(total).toEqual(892080000);
+    expect(person1.totalSecondsLived()).toEqual(892489686);
   });
 
   it ('should test mercuryYears calculation from earth years into Mercury years ', function() {
     years = person.mercuryYears(21)
-    expect(years).toEqual(87.2);
+    expect(years).toEqual(87.5);
   });
 
   it ('should test Venus years calculation from earth years', function() {
     years = person.venusYears(21)
-    expect(years).toEqual(31.5);
+    expect(years).toEqual(33.87);
   });
 
   it ('should test Mars years calculation from earth years', function() {
     years = person.marsYears(21)
-    expect(years).toEqual(11.1);
+    expect(years).toEqual(11.17);
   });
 
   it ('should test Jupitor years calculation from earth years', function() {
@@ -170,17 +90,48 @@ describe ('GalaticAge', function () {
     expect(years).toEqual(1.77);
   });
 
-  it ('knowing a only a persons age and gender, it calculates the general expected life expectancy for a male' , function() {
-    let yearsLeft = person.maleLifeExpectancy(30);
-    expect(yearsLeft).toEqual(77.81);
-    yearsLeft = person.maleLifeExpectancy(60);
-    expect(yearsLeft).toEqual(81.04);
-    yearsLeft = person.maleLifeExpectancy(65);
-    expect(yearsLeft).toEqual(81.04);
-    yearsLeft = person.maleLifeExpectancy(70);
-    expect(yearsLeft).toEqual(83.68);
-    yearsLeft = person.maleLifeExpectancy(100);
-    expect(yearsLeft).toEqual(102);
+  it ('calculates the slope knowing two points', function() {
+    let x1 = 6
+    let x2 = 2
+    let y1 = 3
+    let y2 = 6
+    const slope = person.xyslope(x1,y1,x2,y2)
+    expect(slope).toEqual(-.75);
+  });
+
+  it ('find the 4th value given a slope and 3 out of 4 values of two points', function() {
+    let x1 = 1
+    let x2 = 2
+    let y1 = 1
+    let slope = 1
+    const y2 = person.findY2(x1,y1,x2,slope)
+    expect(y2).toEqual(2);
+  });
+
+  it ('lopos through an obects value to return an array of rays for x,y corrdiantes', function() {
+    let ob = person.maleExpectancyValues
+    expect(person.xyCoor).toEqual([])
+    const y2 = person.loopObject(ob)
+    expect(person.xyCoor).toEqual([ [ 0, '76.50' ], [ 30, '77.81' ], [ 60, '81.04' ], [ 65, '82.18' ], [ 70, '83.68' ], [ 100, '102.00' ] ]);
+  });
+
+
+  it ('loops through the xycood array to find an save the slope between the points and saves them to this.slope', function() {
+    expect(person.slope).toEqual([])
+    const slope = person.loopArray(person.xyCoor)
+    expect(age).toEqual(81.61);
+
+  });
+
+  it ('calculates the years life given age', function() {
+    const age = person2.lifeCalc()
+    expect(age).toEqual(81.61);
+
+  });
+
+  it ('returns the number of age someone is over the average life', function() {
+    overAverageLifeSpan(80)
+    expect(age).toEqual(3.5);
   });
 
   it ('determine how many expected earth years a male user has outlived over expected life expectancy or returns false if they are below' , function() {
@@ -189,20 +140,6 @@ describe ('GalaticAge', function () {
     over = person.overAverageLifeSpan(71.5)
     expect(over).toEqual(5);
   });
-
-  // it ('knowing a only a persons age and gender, it calculates the general expected life expectancy for a female' , function() {
-  //   let yearsLeft = person.femaleLifeExpectancy(83.81)
-  //   expect(years).toEqual();
-  // });
-
-
-  // it ('determine how many expected earth years a female user has outlived over expected life expectancy' , function() {
-  //   let years = person.yearsPastAverageFemaleLifeExpectancy(95)
-  //   let age = 100
-  //   // console.log(years)
-  //   expect(years).toEqual(100-80.8);
-  // });
-
 
 
 });
